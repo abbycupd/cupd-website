@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1"
+  >
+
+  <title>Join the Cupd. beta — coffee, captured.</title>
+
+  <meta
+    name="description"
+    content="Join the Cupd. early-access list and help shape the social coffee app."
+  >
+
+  <link
+    rel="stylesheet"
+    href="beta.css"
+  >
+</head>
+
+
+<body>
+
+  <div class="beta-shell">
+
+    <nav class="beta-nav">
+
+      <a
+        class="beta-brand"
+        href="../"
+      >
+        Cupd.
+      </a>
+
+      <a
+        class="beta-back"
+        href="../"
+      >
+        ← back
+      </a>
+
+    </nav>
+
+
+    <main class="beta-main">
+
+      <div>
+
+        <div class="beta-kicker">
+          early access / 2026
+        </div>
+
+        <h1 class="beta-title">
+          want in<br>
+          early?
+        </h1>
+
+        <p class="beta-copy">
+          we're starting small. join the Cupd. beta and
+          help us find the best coffee around.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <form
+          id="beta-form"
+          class="beta-form"
+        >
+
+          <div class="field">
+            <label
+              class="form-label"
+              for="name"
+            >
+              name
+            </label>
+
+            <input
+              id="name"
+              name="name"
+              type="text"
+              autocomplete="name"
+              maxlength="80"
+              required
+              placeholder="your name"
+            >
+          </div>
+
+
+          <div class="field">
+            <label
+              class="form-label"
+              for="email"
+            >
+              email
+            </label>
+
+            <input
+              id="email"
+              name="email"
+              type="email"
+              autocomplete="email"
+              maxlength="160"
+              required
+              placeholder="you@email.com"
+            >
+          </div>
+
+
+          <div class="field">
+            <label
+              class="form-label"
+              for="location"
+            >
+              where are you based?
+            </label>
+
+            <input
+              id="location"
+              name="location"
+              type="text"
+              autocomplete="address-level2"
+              maxlength="100"
+              required
+              placeholder="Lurgan, Belfast, Dublin..."
+            >
+          </div>
+
+
+          <div class="field">
+            <label
+              class="form-label"
+              for="usual-order"
+            >
+              your usual order?
+            </label>
+
+            <select
+              id="usual-order"
+              name="usual_order"
+              required
+            >
+              <option value="" selected disabled>
+                choose your coffee
+              </option>
+
+              <option value="Flat white">flat white</option>
+              <option value="Latte">latte</option>
+              <option value="Americano">americano</option>
+              <option value="Cappuccino">cappuccino</option>
+              <option value="Iced">iced</option>
+              <option value="Filter">filter</option>
+              <option value="Matcha">matcha</option>
+              <option value="Other">other</option>
+            </select>
+          </div>
+
+
+          <div class="field">
+            <label
+              class="form-label"
+              for="instagram"
+            >
+              instagram @ <span>(optional)</span>
+            </label>
+
+            <input
+              id="instagram"
+              name="instagram"
+              type="text"
+              maxlength="80"
+              placeholder="@"
+            >
+          </div>
+
+
+          <button
+            id="submit-button"
+            class="beta-submit"
+            type="submit"
+          >
+            i'm in →
+          </button>
+
+          <p
+            id="form-message"
+            class="form-message"
+            aria-live="polite"
+          ></p>
+
+        </form>
+
+
+        <div
+          id="success"
+          class="success"
+          aria-live="polite"
+        >
+
+          <h2 class="success-title">
+            you're in.
+          </h2>
+
+          <p class="success-copy">
+            we'll be in touch when your town gets cupd.
+            <br><br>
+            in the meantime, go get a coffee.
+          </p>
+
+        </div>
+
+      </div>
+
+    </main>
+
+
+    <footer class="beta-footer">
+
+      <span>
+        Cupd. — coffee, captured.
+      </span>
+
+      <span>
+        © 2026 Cupd.
+      </span>
+
+    </footer>
+
+  </div>
+
+
+  <script>
+    /*
+      Add the same public Supabase URL and anon/publishable key
+      used by the Cupd app here.
+
+      These browser credentials are intended to be public.
+      NEVER put a service-role key in this file.
+    */
+
+    const SUPABASE_URL =
+      "https://qptwehtgqjgxpsjtzdhf.supabase.co";
+
+    const SUPABASE_ANON_KEY =
+      "sb_publishable_vsaLS-znkTosj4Ze2Cotgw_rFKx7HTu";
+
+
+    const form =
+      document.getElementById(
+        "beta-form"
+      );
+
+    const submitButton =
+      document.getElementById(
+        "submit-button"
+      );
+
+    const formMessage =
+      document.getElementById(
+        "form-message"
+      );
+
+    const success =
+      document.getElementById(
+        "success"
+      );
+
+
+    form.addEventListener(
+      "submit",
+      async (event) => {
+
+        event.preventDefault();
+
+        formMessage.textContent =
+          "";
+
+        submitButton.disabled =
+          true;
+
+        submitButton.textContent =
+          "joining...";
+
+
+        const data =
+          new FormData(form);
+
+
+        const instagramRaw =
+          String(
+            data.get(
+              "instagram"
+            ) || ""
+          ).trim();
+
+
+        const payload = {
+          name:
+            String(
+              data.get(
+                "name"
+              ) || ""
+            ).trim(),
+
+          email:
+            String(
+              data.get(
+                "email"
+              ) || ""
+            )
+              .trim()
+              .toLowerCase(),
+
+          location:
+            String(
+              data.get(
+                "location"
+              ) || ""
+            ).trim(),
+
+          usual_order:
+            String(
+              data.get(
+                "usual_order"
+              ) || ""
+            ).trim(),
+
+          instagram:
+            instagramRaw
+              ? instagramRaw
+              : null
+        };
+
+
+        try {
+
+          if (
+            SUPABASE_URL.includes(
+              "PASTE_"
+            ) ||
+            SUPABASE_ANON_KEY.includes(
+              "PASTE_"
+            )
+          ) {
+            throw new Error(
+              "Supabase website keys have not been added yet."
+            );
+          }
+
+
+          const response =
+            await fetch(
+              `${SUPABASE_URL}/rest/v1/beta_signups`,
+              {
+                method:
+                  "POST",
+
+                headers: {
+                  "apikey":
+                    SUPABASE_ANON_KEY,
+
+                  "Authorization":
+                    `Bearer ${SUPABASE_ANON_KEY}`,
+
+                  "Content-Type":
+                    "application/json",
+
+                  "Prefer":
+                    "return=minimal"
+                },
+
+                body:
+                  JSON.stringify(
+                    payload
+                  )
+              }
+            );
+
+
+          if (!response.ok) {
+
+            let errorText =
+              "";
+
+            try {
+              errorText =
+                await response.text();
+            } catch {
+              errorText =
+                "";
+            }
+
+
+            if (
+              response.status ===
+                409 ||
+              errorText.includes(
+                "beta_signups_email_unique"
+              )
+            ) {
+              formMessage.textContent =
+                "looks like that email is already on the list.";
+
+              return;
+            }
+
+
+            throw new Error(
+              errorText ||
+              "Could not join the beta."
+            );
+          }
+
+
+          form.style.display =
+            "none";
+
+          success.classList.add(
+            "is-visible"
+          );
+
+
+        } catch (error) {
+
+          console.error(
+            "BETA SIGNUP ERROR:",
+            error
+          );
+
+          formMessage.textContent =
+            "couldn't add you just yet. try again in a moment.";
+
+        } finally {
+
+          submitButton.disabled =
+            false;
+
+          submitButton.textContent =
+            "i'm in →";
+
+        }
+
+      }
+    );
+  </script>
+
+</body>
+
+</html>
