@@ -115,7 +115,6 @@ textarea {
   color: var(--ink);
   font: inherit;
   font-size: 17px;
-  background: #F5F1E8;
   border-radius: 0;
   .beta-form textarea {
   resize: vertical;
