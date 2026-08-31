@@ -13,7 +13,7 @@
 
   <meta
     name="description"
-    content="Join the Cupd. early-access list and help shape the social coffee app."
+    content="Join the Cupd. beta and help shape the social coffee app."
   >
 
   <link
@@ -51,7 +51,7 @@
       <div>
 
         <div class="beta-kicker">
-          early access / 2026
+          beta / 2026
         </div>
 
         <h1 class="beta-title">
@@ -60,8 +60,9 @@
         </h1>
 
         <p class="beta-copy">
-          we're starting small. join the Cupd. beta and
-          help us find the best coffee around.
+          we're starting small. join the Cupd. beta,
+          cupd your coffees and help us make it better
+          before launch.
         </p>
 
       </div>
@@ -137,6 +138,104 @@
           <div class="field">
             <label
               class="form-label"
+              for="user-type"
+            >
+              who are you?
+            </label>
+
+            <select
+              id="user-type"
+              name="user_type"
+              required
+            >
+              <option
+                value=""
+                selected
+                disabled
+              >
+                choose one
+              </option>
+
+              <option value="Coffee drinker">
+                coffee drinker
+              </option>
+
+              <option value="Cafe owner">
+                café owner
+              </option>
+
+              <option value="Cafe staff">
+                café staff
+              </option>
+
+              <option value="Coffee creator">
+                coffee creator / influencer
+              </option>
+
+              <option value="Other">
+                other
+              </option>
+            </select>
+          </div>
+
+
+          <div
+            class="field"
+            id="cafe-field"
+            style="display: none;"
+          >
+            <label
+              class="form-label"
+              for="cafe-name"
+            >
+              café name
+            </label>
+
+            <input
+              id="cafe-name"
+              name="cafe_name"
+              type="text"
+              maxlength="120"
+              placeholder="your café"
+            >
+          </div>
+
+
+          <div class="field">
+            <label
+              class="form-label"
+              for="device"
+            >
+              what phone do you use?
+            </label>
+
+            <select
+              id="device"
+              name="device"
+              required
+            >
+              <option
+                value=""
+                selected
+                disabled
+              >
+                choose your phone
+              </option>
+
+              <option value="iPhone">
+                iPhone
+              </option>
+
+              <option value="Android">
+                Android
+              </option>
+            </select>
+          </div>
+
+
+          <div class="field">
+            <label
+              class="form-label"
               for="usual-order"
             >
               your usual order?
@@ -147,18 +246,85 @@
               name="usual_order"
               required
             >
-              <option value="" selected disabled>
+              <option
+                value=""
+                selected
+                disabled
+              >
                 choose your coffee
               </option>
 
-              <option value="Flat white">flat white</option>
-              <option value="Latte">latte</option>
-              <option value="Americano">americano</option>
-              <option value="Cappuccino">cappuccino</option>
-              <option value="Iced">iced</option>
-              <option value="Filter">filter</option>
-              <option value="Matcha">matcha</option>
-              <option value="Other">other</option>
+              <option value="Flat white">
+                flat white
+              </option>
+
+              <option value="Latte">
+                latte
+              </option>
+
+              <option value="Americano">
+                americano
+              </option>
+
+              <option value="Cappuccino">
+                cappuccino
+              </option>
+
+              <option value="Iced">
+                iced coffee
+              </option>
+
+              <option value="Filter">
+                filter
+              </option>
+
+              <option value="Matcha">
+                matcha
+              </option>
+
+              <option value="Other">
+                other
+              </option>
+            </select>
+          </div>
+
+
+          <div class="field">
+            <label
+              class="form-label"
+              for="coffee-frequency"
+            >
+              how often do you buy coffee?
+            </label>
+
+            <select
+              id="coffee-frequency"
+              name="coffee_frequency"
+              required
+            >
+              <option
+                value=""
+                selected
+                disabled
+              >
+                choose one
+              </option>
+
+              <option value="Every day">
+                every day
+              </option>
+
+              <option value="A few times a week">
+                a few times a week
+              </option>
+
+              <option value="About once a week">
+                about once a week
+              </option>
+
+              <option value="Occasionally">
+                occasionally
+              </option>
             </select>
           </div>
 
@@ -181,12 +347,31 @@
           </div>
 
 
+          <div class="field">
+            <label
+              class="form-label"
+              for="beta-reason"
+            >
+              why do you want to try Cupd.?
+              <span>(optional)</span>
+            </label>
+
+            <textarea
+              id="beta-reason"
+              name="beta_reason"
+              maxlength="300"
+              rows="4"
+              placeholder="tell us..."
+            ></textarea>
+          </div>
+
+
           <button
             id="submit-button"
             class="beta-submit"
             type="submit"
           >
-            i'm in →
+            i want in. →
           </button>
 
           <p
@@ -209,7 +394,7 @@
           </h2>
 
           <p class="success-copy">
-            we'll be in touch when your town gets cupd.
+            we'll be in touch when it's time to get Cupd.
             <br><br>
             in the meantime, go get a coffee.
           </p>
@@ -237,13 +422,6 @@
 
 
   <script>
-    /*
-      Add the same public Supabase URL and anon/publishable key
-      used by the Cupd app here.
-
-      These browser credentials are intended to be public.
-      NEVER put a service-role key in this file.
-    */
 
     const SUPABASE_URL =
       "https://qptwehtgqjgxpsjtzdhf.supabase.co";
@@ -271,6 +449,48 @@
       document.getElementById(
         "success"
       );
+
+    const userType =
+      document.getElementById(
+        "user-type"
+      );
+
+    const cafeField =
+      document.getElementById(
+        "cafe-field"
+      );
+
+    const cafeName =
+      document.getElementById(
+        "cafe-name"
+      );
+
+
+    userType.addEventListener(
+      "change",
+      () => {
+
+        const isCafe =
+          userType.value ===
+            "Cafe owner" ||
+          userType.value ===
+            "Cafe staff";
+
+        cafeField.style.display =
+          isCafe
+            ? "block"
+            : "none";
+
+        cafeName.required =
+          isCafe;
+
+        if (!isCafe) {
+          cafeName.value =
+            "";
+        }
+
+      }
+    );
 
 
     form.addEventListener(
@@ -300,8 +520,23 @@
             ) || ""
           ).trim();
 
+        const cafeNameRaw =
+          String(
+            data.get(
+              "cafe_name"
+            ) || ""
+          ).trim();
+
+        const betaReasonRaw =
+          String(
+            data.get(
+              "beta_reason"
+            ) || ""
+          ).trim();
+
 
         const payload = {
+
           name:
             String(
               data.get(
@@ -325,6 +560,25 @@
               ) || ""
             ).trim(),
 
+          user_type:
+            String(
+              data.get(
+                "user_type"
+              ) || ""
+            ).trim(),
+
+          cafe_name:
+            cafeNameRaw
+              ? cafeNameRaw
+              : null,
+
+          device:
+            String(
+              data.get(
+                "device"
+              ) || ""
+            ).trim(),
+
           usual_order:
             String(
               data.get(
@@ -332,28 +586,26 @@
               ) || ""
             ).trim(),
 
+          coffee_frequency:
+            String(
+              data.get(
+                "coffee_frequency"
+              ) || ""
+            ).trim(),
+
           instagram:
             instagramRaw
               ? instagramRaw
+              : null,
+
+          beta_reason:
+            betaReasonRaw
+              ? betaReasonRaw
               : null
         };
 
 
         try {
-
-          if (
-            SUPABASE_URL.includes(
-              "PASTE_"
-            ) ||
-            SUPABASE_ANON_KEY.includes(
-              "PASTE_"
-            )
-          ) {
-            throw new Error(
-              "Supabase website keys have not been added yet."
-            );
-          }
-
 
           const response =
             await fetch(
@@ -405,6 +657,7 @@
                 "beta_signups_email_unique"
               )
             ) {
+
               formMessage.textContent =
                 "looks like that email is already on the list.";
 
@@ -443,12 +696,13 @@
             false;
 
           submitButton.textContent =
-            "i'm in →";
+            "i want in. →";
 
         }
 
       }
     );
+
   </script>
 
 </body>
