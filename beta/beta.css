@@ -90,55 +90,125 @@ a {
   color: var(--muted);
 }
 
+/* FORM */
+
 .beta-form {
   border-top: 1px solid var(--ink);
 }
 
 .field {
-  padding: 22px 0 18px;
+  position: relative;
+  padding: 24px 0 20px;
   border-bottom: 1px solid var(--line);
+}
+
+.field:focus-within {
+  border-bottom-color: var(--ink);
 }
 
 .form-label {
   display: block;
-  margin-bottom: 10px;
+  margin-bottom: 11px;
+  letter-spacing: .02em;
 }
+
+/* inputs */
 
 .field input,
-.field select 
-textarea {
+.field select,
+.field textarea {
+  display: block;
   width: 100%;
+  margin: 0;
+  padding: 4px 0 2px;
+
   border: 0;
+  border-radius: 0;
   outline: 0;
-  padding: 4px 0;
+
   background: transparent;
   color: var(--ink);
-  font: inherit;
+
+  font-family: "Courier New", Courier, monospace;
   font-size: 17px;
-  border-radius: 0;
+  line-height: 1.5;
+
+  box-shadow: none;
+  -webkit-box-shadow: none;
 }
 
-.field input::placeholder {
-  color: #9B958B;
+.field input {
+  min-height: 34px;
 }
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #9B958B;
+  opacity: 1;
+}
+
+/* selects */
 
 .field select {
+  min-height: 34px;
+  padding-right: 32px;
+
   appearance: none;
   -webkit-appearance: none;
+
   cursor: pointer;
+
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--ink) 50%),
+    linear-gradient(135deg, var(--ink) 50%, transparent 50%);
+  background-position:
+    calc(100% - 9px) 50%,
+    calc(100% - 4px) 50%;
+  background-size:
+    5px 5px,
+    5px 5px;
+  background-repeat: no-repeat;
 }
+
+/* textarea */
+
+.field textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+/* remove browser autofill weirdness */
+
+.field input:-webkit-autofill,
+.field input:-webkit-autofill:hover,
+.field input:-webkit-autofill:focus,
+.field textarea:-webkit-autofill,
+.field select:-webkit-autofill {
+  -webkit-text-fill-color: var(--ink);
+  -webkit-box-shadow: 0 0 0 1000px var(--bg) inset;
+  transition: background-color 9999s ease-out;
+}
+
+/* button */
 
 .beta-submit {
   width: 100%;
-  margin-top: 28px;
-  padding: 18px 22px;
+  margin-top: 30px;
+  padding: 19px 22px;
+
   border: 1px solid var(--ink);
   border-radius: 0;
+
   background: var(--ink);
   color: var(--bg);
-  font: inherit;
+
+  font-family: "Courier New", Courier, monospace;
   font-size: 12px;
+
   cursor: pointer;
+  transition:
+    background .15s ease,
+    color .15s ease;
 }
 
 .beta-submit:hover {
@@ -151,13 +221,18 @@ textarea {
   cursor: wait;
 }
 
+/* status */
+
 .form-message {
   min-height: 18px;
   margin: 16px 0 0;
+
   font-size: 11px;
   line-height: 1.6;
   color: var(--muted);
 }
+
+/* success */
 
 .success {
   display: none;
@@ -183,15 +258,21 @@ textarea {
   color: var(--muted);
 }
 
+/* footer */
+
 .beta-footer {
   padding: 38px 0 52px;
   border-top: 1px solid var(--line);
+
   display: flex;
   justify-content: space-between;
   gap: 24px;
+
   font-size: 10px;
   color: var(--muted);
 }
+
+/* mobile */
 
 @media (max-width: 760px) {
   .beta-shell {
@@ -219,6 +300,20 @@ textarea {
 
   .beta-copy {
     margin-top: 28px;
+  }
+
+  .field {
+    padding: 21px 0 18px;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    font-size: 16px;
+  }
+
+  .field textarea {
+    min-height: 88px;
   }
 
   .beta-footer {
