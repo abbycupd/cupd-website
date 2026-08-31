@@ -116,10 +116,6 @@ textarea {
   font: inherit;
   font-size: 17px;
   border-radius: 0;
-  .beta-form textarea {
-  resize: vertical;
-  font-family: inherit;
-}
 }
 
 .field input::placeholder {
