@@ -26,6 +26,27 @@
     rel="stylesheet"
     href="styles.css"
   >
+
+  <style>
+    /* Real Cupd. app sneak peek */
+    .app-preview { overflow: hidden; }
+    .preview-intro { max-width: 720px; margin-bottom: 54px; }
+    .preview-grid { display: grid; grid-template-columns: 0.92fr 1.08fr 0.92fr; gap: 24px; align-items: center; }
+    .preview-shot { margin: 0; position: relative; }
+    .preview-shot img { display: block; width: 100%; height: auto; border: 1px solid rgba(17,17,17,.22); background: #F5F1E8; box-shadow: 0 18px 50px rgba(17,17,17,.08); }
+    .preview-shot:nth-child(1) { transform: rotate(-1.25deg) translateY(24px); }
+    .preview-shot:nth-child(2) { transform: translateY(-10px); }
+    .preview-shot:nth-child(3) { transform: rotate(1.25deg) translateY(28px); }
+    .preview-label { margin-top: 14px; font-family: "Courier New", Courier, monospace; font-size: 12px; color: #777; text-transform: lowercase; }
+    .preview-note { margin-top: 64px; display: flex; justify-content: space-between; gap: 24px; border-top: 1px solid rgba(17,17,17,.22); padding-top: 16px; font-size: 12px; color: #777; }
+    @media (max-width: 760px) {
+      .preview-grid { grid-template-columns: 1fr; gap: 34px; }
+      .preview-shot:nth-child(n) { transform: none; }
+      .preview-shot img { width: min(100%, 520px); margin: 0 auto; }
+      .preview-label { max-width: 520px; margin-left: auto; margin-right: auto; }
+      .preview-note { margin-top: 42px; flex-direction: column; gap: 8px; }
+    }
+  </style>
 </head>
 
 
@@ -54,6 +75,10 @@
 
         <a href="#how">
           how it works
+        </a>
+
+        <a href="#preview">
+          sneak peek
         </a>
 
         <a href="#map">
@@ -354,12 +379,64 @@
 
 
 
+    <!-- REAL APP PREVIEW -->
+
+    <section id="preview" class="app-preview">
+
+      <div class="section-number">
+        03 / inside Cupd.
+      </div>
+
+      <div class="section-split preview-intro">
+        <h2>
+          a first look
+          inside Cupd.
+        </h2>
+
+        <div>
+          <p class="lead">
+            Your coffees. Your spots. Your people.
+          </p>
+
+          <p class="body-copy">
+            A little look at the real app while we get
+            Cupd. ready for its first coffee run.
+          </p>
+        </div>
+      </div>
+
+      <div class="preview-grid">
+        <figure class="preview-shot">
+          <img src="images/cupd-profile.jpeg" alt="Cupd profile screen showing coffee stats and recent Cupds" loading="lazy">
+          <figcaption class="preview-label">your coffee profile.</figcaption>
+        </figure>
+
+        <figure class="preview-shot">
+          <img src="images/cupd-explore.jpeg" alt="Cupd Explore screen showing a personal coffee map and saved spots" loading="lazy">
+          <figcaption class="preview-label">your coffee map.</figcaption>
+        </figure>
+
+        <figure class="preview-shot">
+          <img src="images/cupd-feed.jpeg" alt="Cupd post showing a rated iced latte at Vibe Lurgan" loading="lazy">
+          <figcaption class="preview-label">coffee, captured.</figcaption>
+        </figure>
+      </div>
+
+      <div class="preview-note">
+        <span>real Cupd. screens.</span>
+        <span>currently in development.</span>
+      </div>
+
+    </section>
+
+
+
     <!-- MAP -->
 
     <section id="map">
 
       <div class="section-number">
-        03 / explore
+        04 / explore
       </div>
 
 
@@ -441,7 +518,7 @@
     <section>
 
       <div class="section-number">
-        04 / together
+        05 / together
       </div>
 
 
