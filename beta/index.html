@@ -73,7 +73,7 @@
       display: grid;
       grid-template-columns: 1.1fr 0.9fr;
       gap: 72px;
-      align-items: center;
+      align-items: start;
       padding: 82px 0 100px;
     }
 
@@ -116,10 +116,6 @@
     .panel {
       border: 1px solid var(--ink);
       padding: 36px;
-      min-height: 460px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
     }
 
     .panel-number {
@@ -143,7 +139,12 @@
 
     .beta-form {
       display: grid;
-      gap: 12px;
+      gap: 16px;
+    }
+
+    .field {
+      display: grid;
+      gap: 7px;
     }
 
     label {
@@ -151,9 +152,10 @@
       color: var(--muted);
     }
 
-    input {
+    input,
+    select,
+    textarea {
       width: 100%;
-      min-height: 54px;
       border: 1px solid var(--ink);
       border-radius: 0;
       background: transparent;
@@ -164,13 +166,69 @@
       outline: none;
     }
 
-    input::placeholder {
+    input,
+    select {
+      min-height: 54px;
+    }
+
+    textarea {
+      min-height: 110px;
+      padding-top: 14px;
+      padding-bottom: 14px;
+      resize: vertical;
+    }
+
+    input::placeholder,
+    textarea::placeholder {
       color: #8B867E;
     }
 
-    input:focus {
+    input:focus,
+    select:focus,
+    textarea:focus {
       outline: 1px solid var(--ink);
       outline-offset: 2px;
+    }
+
+    .choice-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .choice {
+      position: relative;
+    }
+
+    .choice input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .choice label {
+      min-height: 54px;
+      border: 1px solid var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 14px;
+      cursor: pointer;
+      color: var(--ink);
+      text-align: center;
+    }
+
+    .choice input:checked + label {
+      background: var(--ink);
+      color: var(--cream);
+    }
+
+    .conditional {
+      display: none;
+    }
+
+    .conditional.is-visible {
+      display: grid;
     }
 
     button {
@@ -187,6 +245,11 @@
 
     button:hover {
       opacity: 0.88;
+    }
+
+    button:disabled {
+      opacity: 0.55;
+      cursor: wait;
     }
 
     .form-note {
@@ -263,12 +326,15 @@
       }
 
       .panel {
-        min-height: auto;
         padding: 28px 22px;
       }
 
       .panel-title {
         margin-top: 44px;
+      }
+
+      .choice-grid {
+        grid-template-columns: 1fr;
       }
 
       footer {
@@ -326,27 +392,184 @@
           </h2>
 
           <p class="panel-copy">
-            Leave your email and we'll let you know when beta spaces open.
+            Tell us a little about you and we'll let you know when beta spaces open.
           </p>
 
           <form
             class="beta-form"
             id="beta-form"
           >
-            <label for="email">
-              email
-            </label>
+            <div class="field">
+              <label>who are you?</label>
 
-            <input
-              id="email"
-              name="email"
-              type="email"
-              autocomplete="email"
-              placeholder="you@email.com"
-              required
+              <div class="choice-grid">
+                <div class="choice">
+                  <input
+                    id="user-type-drinker"
+                    name="user_type"
+                    type="radio"
+                    value="Coffee drinker"
+                    required
+                    checked
+                  >
+                  <label for="user-type-drinker">
+                    coffee drinker
+                  </label>
+                </div>
+
+                <div class="choice">
+                  <input
+                    id="user-type-cafe"
+                    name="user_type"
+                    type="radio"
+                    value="Café"
+                    required
+                  >
+                  <label for="user-type-cafe">
+                    café
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="name">name</label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                autocomplete="name"
+                maxlength="80"
+                placeholder="your name"
+                required
+              >
+            </div>
+
+            <div class="field">
+              <label for="email">email</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                maxlength="160"
+                placeholder="you@email.com"
+                required
+              >
+            </div>
+
+            <div class="field">
+              <label for="location">where are you based?</label>
+              <input
+                id="location"
+                name="location"
+                type="text"
+                autocomplete="address-level2"
+                maxlength="100"
+                placeholder="Craigavon, Belfast, Dublin..."
+                required
+              >
+            </div>
+
+            <div
+              class="field conditional"
+              id="cafe-name-field"
             >
+              <label for="cafe-name">café name</label>
+              <input
+                id="cafe-name"
+                name="cafe_name"
+                type="text"
+                maxlength="120"
+                placeholder="your café"
+              >
+            </div>
 
-            <button type="submit">
+            <div
+              class="field"
+              id="usual-order-field"
+            >
+              <label for="usual-order">your usual order?</label>
+              <select
+                id="usual-order"
+                name="usual_order"
+              >
+                <option value="" selected disabled>
+                  choose your coffee
+                </option>
+                <option value="Flat white">flat white</option>
+                <option value="Latte">latte</option>
+                <option value="Americano">americano</option>
+                <option value="Cappuccino">cappuccino</option>
+                <option value="Iced latte">iced latte</option>
+                <option value="Filter">filter</option>
+                <option value="Espresso">espresso</option>
+                <option value="Matcha">matcha</option>
+                <option value="Other">other</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="instagram">instagram @ <span>(optional)</span></label>
+              <input
+                id="instagram"
+                name="instagram"
+                type="text"
+                maxlength="80"
+                placeholder="@"
+              >
+            </div>
+
+            <div class="field">
+              <label for="device">what phone do you use?</label>
+              <select
+                id="device"
+                name="device"
+                required
+              >
+                <option value="" selected disabled>
+                  choose device
+                </option>
+                <option value="iPhone">iPhone</option>
+                <option value="Android">Android</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="coffee-frequency">how often do you drink coffee?</label>
+              <select
+                id="coffee-frequency"
+                name="coffee_frequency"
+                required
+              >
+                <option value="" selected disabled>
+                  choose one
+                </option>
+                <option value="Every day">every day</option>
+                <option value="A few times a week">a few times a week</option>
+                <option value="About once a week">about once a week</option>
+                <option value="A few times a month">a few times a month</option>
+                <option value="Rarely">rarely</option>
+              </select>
+            </div>
+
+            <div class="field">
+              <label for="beta-reason">
+                why do you want to beta test Cupd.?
+                <span>(optional)</span>
+              </label>
+              <textarea
+                id="beta-reason"
+                name="beta_reason"
+                maxlength="600"
+                placeholder="coffee obsessive, café finder, photo taker..."
+              ></textarea>
+            </div>
+
+            <button
+              id="submit-button"
+              type="submit"
+            >
               join the beta →
             </button>
           </form>
@@ -387,48 +610,290 @@
 
   <script>
     /*
-      This page is ready visually.
+      IMPORTANT:
+      Paste the SAME public Supabase URL + anon/publishable key
+      that your previous working beta form used.
 
-      The submit currently opens an email to support@cupd.co.uk so no beta
-      signup is silently lost while there is no confirmed mailing-list
-      backend connected.
-
-      When you connect a real beta waitlist/database, replace the submit
-      handler below with that endpoint.
+      Never use the service-role key here.
     */
 
-    const form = document.getElementById('beta-form');
-    const email = document.getElementById('email');
-    const status = document.getElementById('status');
+    const SUPABASE_URL =
+      "https://qptwehtgqjgxpsjtzdhf.supabase.co";
 
-    form.addEventListener('submit', function (event) {
-      event.preventDefault();
+    const SUPABASE_ANON_KEY =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InFwdHdlaHRncWpneHBzanR6ZGhmIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODc1ODQwOTYsImV4cCI6MjEwMzE2MDA5Nn0.P0xEj0mYHWo42WC0HzPguFAsPX29lHS7c_ouIWmsYlw";
 
-      const value = email.value.trim();
 
-      if (!value) {
-        return;
+    const form =
+      document.getElementById('beta-form');
+
+    const status =
+      document.getElementById('status');
+
+    const submitButton =
+      document.getElementById('submit-button');
+
+    const cafeNameField =
+      document.getElementById('cafe-name-field');
+
+    const cafeName =
+      document.getElementById('cafe-name');
+
+    const usualOrder =
+      document.getElementById('usual-order');
+
+    const usualOrderField =
+      document.getElementById('usual-order-field');
+
+    const userTypeInputs =
+      document.querySelectorAll(
+        'input[name="user_type"]'
+      );
+
+
+    function updateUserTypeFields() {
+      const selected =
+        document.querySelector(
+          'input[name="user_type"]:checked'
+        )?.value;
+
+      const isCafe =
+        selected === 'Café';
+
+      cafeNameField.classList.toggle(
+        'is-visible',
+        isCafe
+      );
+
+      cafeName.required =
+        isCafe;
+
+      usualOrder.required =
+        !isCafe;
+
+      usualOrderField.style.display =
+        isCafe
+          ? 'none'
+          : 'grid';
+
+      if (isCafe) {
+        usualOrder.value =
+          '';
+      } else {
+        cafeName.value =
+          '';
       }
+    }
 
-      status.style.display = 'block';
-      status.textContent =
-        'opening your email app — send the message and you’re on our beta list.';
 
-      const subject =
-        encodeURIComponent('Cupd. beta');
-
-      const body =
-        encodeURIComponent(
-          'Hey Cupd. — I want in early.\n\nEmail: ' + value
+    userTypeInputs.forEach(
+      (input) => {
+        input.addEventListener(
+          'change',
+          updateUserTypeFields
         );
+      }
+    );
 
-      window.location.href =
-        'mailto:support@cupd.co.uk?subject=' +
-        subject +
-        '&body=' +
-        body;
-    });
+    updateUserTypeFields();
+
+
+    form.addEventListener(
+      'submit',
+      async function (event) {
+        event.preventDefault();
+
+        status.style.display =
+          'none';
+
+        status.textContent =
+          '';
+
+        submitButton.disabled =
+          true;
+
+        submitButton.textContent =
+          'joining...';
+
+        const data =
+          new FormData(form);
+
+        const instagramRaw =
+          String(
+            data.get('instagram') || ''
+          ).trim();
+
+        const userType =
+          String(
+            data.get('user_type') || ''
+          ).trim();
+
+        const payload = {
+          name:
+            String(
+              data.get('name') || ''
+            ).trim(),
+
+          email:
+            String(
+              data.get('email') || ''
+            )
+              .trim()
+              .toLowerCase(),
+
+          location:
+            String(
+              data.get('location') || ''
+            ).trim(),
+
+          usual_order:
+            userType === 'Café'
+              ? null
+              : String(
+                  data.get('usual_order') || ''
+                ).trim() || null,
+
+          instagram:
+            instagramRaw ||
+            null,
+
+          status:
+            'waiting',
+
+          user_type:
+            userType,
+
+          cafe_name:
+            userType === 'Café'
+              ? String(
+                  data.get('cafe_name') || ''
+                ).trim() || null
+              : null,
+
+          device:
+            String(
+              data.get('device') || ''
+            ).trim(),
+
+          coffee_frequency:
+            String(
+              data.get('coffee_frequency') || ''
+            ).trim(),
+
+          beta_reason:
+            String(
+              data.get('beta_reason') || ''
+            ).trim() || null
+        };
+
+
+        try {
+          if (
+            SUPABASE_URL.includes(
+              'PASTE_'
+            ) ||
+            SUPABASE_ANON_KEY.includes(
+              'PASTE_'
+            )
+          ) {
+            throw new Error(
+              'Supabase website keys have not been added yet.'
+            );
+          }
+
+
+          const response =
+            await fetch(
+              `${SUPABASE_URL}/rest/v1/beta_signups`,
+              {
+                method:
+                  'POST',
+
+                headers: {
+                  apikey:
+                    SUPABASE_ANON_KEY,
+
+                  Authorization:
+                    `Bearer ${SUPABASE_ANON_KEY}`,
+
+                  'Content-Type':
+                    'application/json',
+
+                  Prefer:
+                    'return=minimal'
+                },
+
+                body:
+                  JSON.stringify(
+                    payload
+                  )
+              }
+            );
+
+
+          if (!response.ok) {
+            const errorText =
+              await response.text();
+
+            if (
+              response.status ===
+                409 ||
+              errorText.includes(
+                'beta_signups_email_unique'
+              )
+            ) {
+              status.style.display =
+                'block';
+
+              status.textContent =
+                'looks like that email is already on the list.';
+
+              return;
+            }
+
+            throw new Error(
+              errorText ||
+              'Could not join the beta.'
+            );
+          }
+
+
+          form.reset();
+
+          document.getElementById(
+            'user-type-drinker'
+          ).checked =
+            true;
+
+          updateUserTypeFields();
+
+          status.style.display =
+            'block';
+
+          status.textContent =
+            "you're in. we'll be in touch when beta spaces open.";
+
+        } catch (error) {
+          console.error(
+            'BETA SIGNUP ERROR:',
+            error
+          );
+
+          status.style.display =
+            'block';
+
+          status.textContent =
+            "couldn't add you just yet. try again in a moment.";
+
+        } finally {
+          submitButton.disabled =
+            false;
+
+          submitButton.textContent =
+            'join the beta →';
+        }
+      }
+    );
   </script>
 </body>
 </html>
-
