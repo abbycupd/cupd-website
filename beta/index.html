@@ -1,105 +1,339 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
-
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  >
-
-  <title>Join the Cupd. beta — coffee, captured.</title>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Join the Cupd. beta</title>
   <meta
     name="description"
-    content="Join the Cupd. beta and help shape the social coffee app."
+    content="Join the Cupd. beta and be one of the first to capture, rate and share your coffees."
   >
+  <style>
+    :root {
+      --cream: #F5F1E8;
+      --ink: #111111;
+      --muted: #777777;
+      --line: #C9C3B9;
+    }
 
-  <link
-    rel="stylesheet"
-    href="beta.css"
-  >
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      min-height: 100%;
+      background: var(--cream);
+      color: var(--ink);
+      font-family: "Courier New", Courier, monospace;
+    }
+
+    body {
+      min-height: 100vh;
+    }
+
+    .wrap {
+      width: min(1100px, calc(100% - 40px));
+      margin: 0 auto;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      min-height: 84px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      border-bottom: 1px solid var(--ink);
+    }
+
+    .brand {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 28px;
+      letter-spacing: -0.04em;
+    }
+
+    .back {
+      color: var(--ink);
+      text-decoration: none;
+      font-size: 12px;
+    }
+
+    .back:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 72px;
+      align-items: center;
+      padding: 82px 0 100px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 20px;
+      text-transform: lowercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(54px, 9vw, 112px);
+      line-height: 0.86;
+      font-weight: 400;
+      letter-spacing: -0.075em;
+    }
+
+    .tagline {
+      margin: 28px 0 0;
+      font-size: 16px;
+      color: var(--ink);
+    }
+
+    .copy {
+      margin-top: 46px;
+      width: min(560px, 100%);
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .tiny {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.6;
+    }
+
+    .panel {
+      border: 1px solid var(--ink);
+      padding: 36px;
+      min-height: 460px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .panel-number {
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .panel-title {
+      margin: 62px 0 14px;
+      font-size: 32px;
+      line-height: 1.05;
+      font-weight: 400;
+    }
+
+    .panel-copy {
+      margin: 0 0 28px;
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+      font-size: 15px;
+    }
+
+    .beta-form {
+      display: grid;
+      gap: 12px;
+    }
+
+    label {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    input {
+      width: 100%;
+      min-height: 54px;
+      border: 1px solid var(--ink);
+      border-radius: 0;
+      background: transparent;
+      color: var(--ink);
+      padding: 0 16px;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 15px;
+      outline: none;
+    }
+
+    input::placeholder {
+      color: #8B867E;
+    }
+
+    input:focus {
+      outline: 1px solid var(--ink);
+      outline-offset: 2px;
+    }
+
+    button {
+      min-height: 54px;
+      border: 1px solid var(--ink);
+      border-radius: 0;
+      background: var(--ink);
+      color: var(--cream);
+      padding: 0 18px;
+      cursor: pointer;
+      font-family: "Courier New", Courier, monospace;
+      font-size: 13px;
+    }
+
+    button:hover {
+      opacity: 0.88;
+    }
+
+    .form-note {
+      margin: 10px 0 0;
+      font-size: 10px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .form-note a {
+      color: var(--ink);
+    }
+
+    .status {
+      display: none;
+      margin-top: 18px;
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+      font-size: 12px;
+      line-height: 1.6;
+    }
+
+    .panel-bottom {
+      margin-top: 48px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    footer {
+      padding: 28px 0 36px;
+      border-top: 1px solid var(--ink);
+      display: flex;
+      justify-content: space-between;
+      gap: 24px;
+      font-size: 11px;
+    }
+
+    footer a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 14px;
+    }
+
+    @media (max-width: 780px) {
+      nav {
+        min-height: 72px;
+      }
+
+      main {
+        grid-template-columns: 1fr;
+        gap: 58px;
+        padding: 58px 0 72px;
+      }
+
+      h1 {
+        font-size: clamp(58px, 18vw, 94px);
+      }
+
+      .copy {
+        font-size: 16px;
+      }
+
+      .panel {
+        min-height: auto;
+        padding: 28px 22px;
+      }
+
+      .panel-title {
+        margin-top: 44px;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+
+      .footer-links {
+        justify-content: flex-start;
+      }
+    }
+  </style>
 </head>
 
-
 <body>
+  <div class="wrap">
 
-  <div class="beta-shell">
-
-    <nav class="beta-nav">
-
-      <a
-        class="beta-brand"
-        href="../"
-      >
-        Cupd.
-      </a>
-
-      <a
-        class="beta-back"
-        href="../"
-      >
-        ← back
-      </a>
-
+    <nav>
+      <a class="brand" href="../">Cupd.</a>
+      <a class="back" href="../">← back to Cupd.</a>
     </nav>
 
+    <main>
+      <section>
+        <div class="eyebrow">early access / 2026</div>
 
-    <main class="beta-main">
-
-      <div>
-
-        <div class="beta-kicker">
-          beta / 2026
-        </div>
-
-        <h1 class="beta-title">
-          want in<br>
-          early?
+        <h1>
+          want<br>
+          in early?
         </h1>
 
-        <p class="beta-copy">
-          we're starting small. join the Cupd. beta,
-          cupd your coffees and help us make it better
-          before launch.
+        <p class="tagline">
+          coffee, captured.
         </p>
 
-      </div>
+        <p class="copy">
+          Cupd. is a social coffee app for capturing, rating and sharing
+          the coffees you drink and the places you find them.
+          Join the beta list and be one of the first to get Cupd.
+        </p>
 
+        <p class="tiny">
+          first cups. first cafés. first friends.<br>
+          you get the idea.
+        </p>
+      </section>
 
-      <div>
+      <section class="panel">
+        <div>
+          <div class="panel-number">01 / join</div>
 
-        <form
-          id="beta-form"
-          class="beta-form"
-        >
+          <h2 class="panel-title">
+            your camera roll<br>
+            has been training<br>
+            for this.
+          </h2>
 
-          <div class="field">
-            <label
-              class="form-label"
-              for="name"
-            >
-              name
-            </label>
+          <p class="panel-copy">
+            Leave your email and we'll let you know when beta spaces open.
+          </p>
 
-            <input
-              id="name"
-              name="name"
-              type="text"
-              autocomplete="name"
-              maxlength="80"
-              required
-              placeholder="your name"
-            >
-          </div>
-
-
-          <div class="field">
-            <label
-              class="form-label"
-              for="email"
-            >
+          <form
+            class="beta-form"
+            id="beta-form"
+          >
+            <label for="email">
               email
             </label>
 
@@ -108,603 +342,93 @@
               name="email"
               type="email"
               autocomplete="email"
-              maxlength="160"
-              required
               placeholder="you@email.com"
-            >
-          </div>
-
-
-          <div class="field">
-            <label
-              class="form-label"
-              for="location"
-            >
-              where are you based?
-            </label>
-
-            <input
-              id="location"
-              name="location"
-              type="text"
-              autocomplete="address-level2"
-              maxlength="100"
-              required
-              placeholder="Lurgan, Belfast, Dublin..."
-            >
-          </div>
-
-
-          <div class="field">
-            <label
-              class="form-label"
-              for="user-type"
-            >
-              who are you?
-            </label>
-
-            <select
-              id="user-type"
-              name="user_type"
               required
             >
-              <option
-                value=""
-                selected
-                disabled
-              >
-                choose one
-              </option>
 
-              <option value="Coffee drinker">
-                coffee drinker
-              </option>
+            <button type="submit">
+              join the beta →
+            </button>
+          </form>
 
-              <option value="Cafe owner">
-                café owner
-              </option>
-
-              <option value="Cafe staff">
-                café staff
-              </option>
-
-              <option value="Coffee creator">
-                coffee creator / influencer
-              </option>
-
-              <option value="Other">
-                other
-              </option>
-            </select>
-          </div>
-
-
-          <div
-            class="field"
-            id="cafe-field"
-            style="display: none;"
-          >
-            <label
-              class="form-label"
-              for="cafe-name"
-            >
-              café name
-            </label>
-
-            <input
-              id="cafe-name"
-              name="cafe_name"
-              type="text"
-              maxlength="120"
-              placeholder="your café"
-            >
-          </div>
-
-
-          <div class="field">
-            <label
-              class="form-label"
-              for="device"
-            >
-              what phone do you use?
-            </label>
-
-            <select
-              id="device"
-              name="device"
-              required
-            >
-              <option
-                value=""
-                selected
-                disabled
-              >
-                choose your phone
-              </option>
-
-              <option value="iPhone">
-                iPhone
-              </option>
-
-              <option value="Android">
-                Android
-              </option>
-            </select>
-          </div>
-
-
-          <div class="field">
-            <label
-              class="form-label"
-              for="usual-order"
-            >
-              your usual order?
-            </label>
-
-            <select
-              id="usual-order"
-              name="usual_order"
-              required
-            >
-              <option
-                value=""
-                selected
-                disabled
-              >
-                choose your coffee
-              </option>
-
-              <option value="Flat white">
-                flat white
-              </option>
-
-              <option value="Latte">
-                latte
-              </option>
-
-              <option value="Americano">
-                americano
-              </option>
-
-              <option value="Cappuccino">
-                cappuccino
-              </option>
-
-              <option value="Iced">
-                iced coffee
-              </option>
-
-              <option value="Filter">
-                filter
-              </option>
-
-              <option value="Matcha">
-                matcha
-              </option>
-
-              <option value="Other">
-                other
-              </option>
-            </select>
-          </div>
-
-
-          <div class="field">
-            <label
-              class="form-label"
-              for="coffee-frequency"
-            >
-              how often do you buy coffee?
-            </label>
-
-            <select
-              id="coffee-frequency"
-              name="coffee_frequency"
-              required
-            >
-              <option
-                value=""
-                selected
-                disabled
-              >
-                choose one
-              </option>
-
-              <option value="Every day">
-                every day
-              </option>
-
-              <option value="A few times a week">
-                a few times a week
-              </option>
-
-              <option value="About once a week">
-                about once a week
-              </option>
-
-              <option value="Occasionally">
-                occasionally
-              </option>
-            </select>
-          </div>
-
-
-          <div class="field">
-            <label
-              class="form-label"
-              for="instagram"
-            >
-              instagram @ <span>(optional)</span>
-            </label>
-
-            <input
-              id="instagram"
-              name="instagram"
-              type="text"
-              maxlength="80"
-              placeholder="@"
-            >
-          </div>
-
-
-          <div class="field">
-            <label
-              class="form-label"
-              for="beta-reason"
-            >
-              why do you want to try Cupd.?
-              <span>(optional)</span>
-            </label>
-
-            <textarea
-              id="beta-reason"
-              name="beta_reason"
-              maxlength="300"
-              rows="4"
-              placeholder="tell us..."
-            ></textarea>
-          </div>
-
-
-          <button
-            id="submit-button"
-            class="beta-submit"
-            type="submit"
-          >
-            i want in. →
-          </button>
-
-          <p
-            id="form-message"
-            class="form-message"
-            aria-live="polite"
-          ></p>
-
-        </form>
-
-
-        <div
-          id="success"
-          class="success"
-          aria-live="polite"
-        >
-
-          <h2 class="success-title">
-            you're in.
-          </h2>
-
-          <p class="success-copy">
-            we'll be in touch when it's time to get Cupd.
-            <br><br>
-            in the meantime, go get a coffee.
+          <p class="form-note">
+            By joining, you're asking to hear from Cupd. about beta access.
+            See our <a href="../privacy.html">Privacy Policy</a>.
           </p>
 
+          <div
+            class="status"
+            id="status"
+            aria-live="polite"
+          ></div>
         </div>
 
-      </div>
-
+        <div class="panel-bottom">
+          <span>estd. 2026</span>
+          <span>☕</span>
+        </div>
+      </section>
     </main>
 
-
-    <footer class="beta-footer">
-
-      <span>
-        Cupd. — coffee, captured.
-      </span>
-
-      <span>
+    <footer>
+      <div>
         © 2026 Cupd.
-      </span>
+      </div>
 
+      <div class="footer-links">
+        <a href="../privacy.html">privacy</a>
+        <a href="../terms.html">terms</a>
+        <a href="../support.html">support</a>
+        <a href="../community-guidelines.html">community guidelines</a>
+      </div>
     </footer>
 
   </div>
 
-
   <script>
+    /*
+      This page is ready visually.
 
-    const SUPABASE_URL =
-      "https://qptwehtgqjgxpsjtzdhf.supabase.co";
+      The submit currently opens an email to support@cupd.co.uk so no beta
+      signup is silently lost while there is no confirmed mailing-list
+      backend connected.
 
-    const SUPABASE_ANON_KEY =
-      "sb_publishable_vsaLS-znkTosj4Ze2Cotgw_rFKx7HTu";
+      When you connect a real beta waitlist/database, replace the submit
+      handler below with that endpoint.
+    */
 
+    const form = document.getElementById('beta-form');
+    const email = document.getElementById('email');
+    const status = document.getElementById('status');
 
-    const form =
-      document.getElementById(
-        "beta-form"
-      );
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
 
-    const submitButton =
-      document.getElementById(
-        "submit-button"
-      );
+      const value = email.value.trim();
 
-    const formMessage =
-      document.getElementById(
-        "form-message"
-      );
-
-    const success =
-      document.getElementById(
-        "success"
-      );
-
-    const userType =
-      document.getElementById(
-        "user-type"
-      );
-
-    const cafeField =
-      document.getElementById(
-        "cafe-field"
-      );
-
-    const cafeName =
-      document.getElementById(
-        "cafe-name"
-      );
-
-
-    userType.addEventListener(
-      "change",
-      () => {
-
-        const isCafe =
-          userType.value ===
-            "Cafe owner" ||
-          userType.value ===
-            "Cafe staff";
-
-        cafeField.style.display =
-          isCafe
-            ? "block"
-            : "none";
-
-        cafeName.required =
-          isCafe;
-
-        if (!isCafe) {
-          cafeName.value =
-            "";
-        }
-
+      if (!value) {
+        return;
       }
-    );
 
+      status.style.display = 'block';
+      status.textContent =
+        'opening your email app — send the message and you’re on our beta list.';
 
-    form.addEventListener(
-      "submit",
-      async (event) => {
+      const subject =
+        encodeURIComponent('Cupd. beta');
 
-        event.preventDefault();
+      const body =
+        encodeURIComponent(
+          'Hey Cupd. — I want in early.\n\nEmail: ' + value
+        );
 
-        formMessage.textContent =
-          "";
-
-        submitButton.disabled =
-          true;
-
-        submitButton.textContent =
-          "joining...";
-
-
-        const data =
-          new FormData(form);
-
-
-        const instagramRaw =
-          String(
-            data.get(
-              "instagram"
-            ) || ""
-          ).trim();
-
-        const cafeNameRaw =
-          String(
-            data.get(
-              "cafe_name"
-            ) || ""
-          ).trim();
-
-        const betaReasonRaw =
-          String(
-            data.get(
-              "beta_reason"
-            ) || ""
-          ).trim();
-
-
-        const payload = {
-
-          name:
-            String(
-              data.get(
-                "name"
-              ) || ""
-            ).trim(),
-
-          email:
-            String(
-              data.get(
-                "email"
-              ) || ""
-            )
-              .trim()
-              .toLowerCase(),
-
-          location:
-            String(
-              data.get(
-                "location"
-              ) || ""
-            ).trim(),
-
-          user_type:
-            String(
-              data.get(
-                "user_type"
-              ) || ""
-            ).trim(),
-
-          cafe_name:
-            cafeNameRaw
-              ? cafeNameRaw
-              : null,
-
-          device:
-            String(
-              data.get(
-                "device"
-              ) || ""
-            ).trim(),
-
-          usual_order:
-            String(
-              data.get(
-                "usual_order"
-              ) || ""
-            ).trim(),
-
-          coffee_frequency:
-            String(
-              data.get(
-                "coffee_frequency"
-              ) || ""
-            ).trim(),
-
-          instagram:
-            instagramRaw
-              ? instagramRaw
-              : null,
-
-          beta_reason:
-            betaReasonRaw
-              ? betaReasonRaw
-              : null
-        };
-
-
-        try {
-
-          const response =
-            await fetch(
-              `${SUPABASE_URL}/rest/v1/beta_signups`,
-              {
-                method:
-                  "POST",
-
-                headers: {
-                  "apikey":
-                    SUPABASE_ANON_KEY,
-
-                  "Authorization":
-                    `Bearer ${SUPABASE_ANON_KEY}`,
-
-                  "Content-Type":
-                    "application/json",
-
-                  "Prefer":
-                    "return=minimal"
-                },
-
-                body:
-                  JSON.stringify(
-                    payload
-                  )
-              }
-            );
-
-
-          if (!response.ok) {
-
-            let errorText =
-              "";
-
-            try {
-              errorText =
-                await response.text();
-            } catch {
-              errorText =
-                "";
-            }
-
-
-            if (
-              response.status ===
-                409 ||
-              errorText.includes(
-                "beta_signups_email_unique"
-              )
-            ) {
-
-              formMessage.textContent =
-                "looks like that email is already on the list.";
-
-              return;
-            }
-
-
-            throw new Error(
-              errorText ||
-              "Could not join the beta."
-            );
-          }
-
-
-          form.style.display =
-            "none";
-
-          success.classList.add(
-            "is-visible"
-          );
-
-
-        } catch (error) {
-
-          console.error(
-            "BETA SIGNUP ERROR:",
-            error
-          );
-
-          formMessage.textContent =
-            "couldn't add you just yet. try again in a moment.";
-
-        } finally {
-
-          submitButton.disabled =
-            false;
-
-          submitButton.textContent =
-            "i want in. →";
-
-        }
-
-      }
-    );
-
+      window.location.href =
+        'mailto:support@cupd.co.uk?subject=' +
+        subject +
+        '&body=' +
+        body;
+    });
   </script>
-
 </body>
-
 </html>
+

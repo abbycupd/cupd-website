@@ -1,15 +1,197 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Support — Cupd.</title><link rel="stylesheet" href="styles.css"></head>
-<body><div class="page">
-<a class="brand" href="/">Cupd.</a>
-<h1>support.</h1>
-<p>Need help with Cupd.? Use the contact details below.</p>
-<h2>contact</h2>
-<p>Email: <strong>support@cupd.co.uk</strong></p>
-<p class="small">Set this mailbox up before App Store submission, or replace it with your preferred support email.</p>
-<h2>account help</h2>
-<p>For login issues, password reset, profile problems, reporting another user or questions about your data, contact support and include your Cupd. username if relevant.</p>
-<h2>privacy</h2>
-<p>See the <a href="privacy.html">privacy policy</a>.</p>
-<h2>delete your account</h2>
-<p>See <a href="delete-account.html">account deletion instructions</a>.</p>
-</div></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Support | Cupd.</title>
+  <meta name="description" content="Help and support for Cupd.">
+  <style>
+:root {
+  --cream: #F5F1E8;
+  --ink: #111111;
+  --muted: #777777;
+  --line: #C9C3B9;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: "Courier New", Courier, monospace;
+}
+.wrap {
+  width: min(900px, calc(100% - 40px));
+  margin: 0 auto;
+}
+nav {
+  min-height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  border-bottom: 1px solid var(--ink);
+}
+.brand {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 28px;
+}
+.navlinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 16px;
+}
+.navlinks a, footer a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 12px;
+}
+.navlinks a:hover, footer a:hover { text-decoration: underline; }
+main {
+  padding: 72px 0 90px;
+}
+.eyebrow {
+  color: var(--muted);
+  font-size: 11px;
+  text-transform: lowercase;
+  margin-bottom: 12px;
+}
+h1 {
+  margin: 0 0 14px;
+  font-size: clamp(34px, 7vw, 58px);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+}
+.updated {
+  margin: 0 0 48px;
+  color: var(--muted);
+  font-size: 12px;
+}
+h2 {
+  margin: 42px 0 12px;
+  font-size: 20px;
+  font-weight: 400;
+}
+h3 {
+  margin: 26px 0 8px;
+  font-size: 14px;
+}
+p, li {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15px;
+  line-height: 1.72;
+}
+p { margin: 10px 0; }
+ul { padding-left: 22px; }
+strong { font-weight: 700; }
+a { color: var(--ink); }
+.callout {
+  margin: 34px 0;
+  border: 1px solid var(--ink);
+  padding: 22px;
+}
+footer {
+  border-top: 1px solid var(--ink);
+  padding: 28px 0 40px;
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 28px;
+  align-items: flex-start;
+}
+.footer-brand { font-size: 22px; }
+.footer-tagline, .copyright {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 7px;
+}
+.footerlinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: flex-end;
+}
+@media (max-width: 650px) {
+  nav { align-items: flex-start; padding: 22px 0; }
+  .navlinks { max-width: 210px; }
+  main { padding-top: 50px; }
+  .footer-inner { flex-direction: column; }
+  .footerlinks { justify-content: flex-start; }
+}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="/">Cupd.</a>
+      <div class="navlinks">
+        <a href="/">home</a>
+        <a href="privacy.html">privacy</a>
+        <a href="terms.html">terms</a>
+        <a href="support.html">support</a>
+        <a href="community-guidelines.html">community</a>
+      </div>
+    </nav>
+    <main>
+
+      <div class="eyebrow">help</div>
+      <h1>Support</h1>
+      <p class="updated">coffee, captured. ☕️</p>
+
+      <p>Need a hand with Cupd.? For account help, technical problems, privacy requests, inappropriate content or anything else relating to Cupd., email <a href="mailto:support@cupd.co.uk">support@cupd.co.uk</a>.</p>
+
+      <div class="callout">
+        <strong>Something broken?</strong>
+        <p>Tell us what you were trying to do, what happened instead, your device/iOS version if known, and include a screenshot where useful. Please never send your password.</p>
+      </div>
+
+      <h2>Forgot your password?</h2>
+      <p>Select <strong>Forgot password?</strong> from the Cupd. login screen, enter the email associated with your account and follow the reset link sent to you.</p>
+
+      <h2>Not receiving a reset email?</h2>
+      <p>Check your spam or junk folder and make sure you entered the email associated with your account. If it still doesn't arrive, email us.</p>
+
+      <h2>Delete your account</h2>
+      <p>You can permanently delete your account from within Cupd. Account deletion removes your account and associated content from Cupd.'s active systems, subject to information we may need to retain for legal, security or technical reasons.</p>
+
+      <h2>Photos, camera & location</h2>
+      <p>Cupd. may ask for permission to use your camera, photo library and location. You can manage these permissions at any time through your device settings.</p>
+
+      <h2>Notifications</h2>
+      <p>You can manage Cupd. notification permissions through your device settings.</p>
+
+      <h2>Report inappropriate content or behaviour</h2>
+      <p>If you see harassment, threats, hate, explicit material, impersonation, spam, privacy violations or anything else that may breach our <a href="community-guidelines.html">Community Guidelines</a>, contact <a href="mailto:support@cupd.co.uk">support@cupd.co.uk</a>.</p>
+      <p>Please include the relevant username and enough information for us to identify the content.</p>
+
+      <h2>Privacy</h2>
+      <p>For questions about your personal information or to exercise a data protection right, email <a href="mailto:support@cupd.co.uk">support@cupd.co.uk</a> and read our <a href="privacy.html">Privacy Policy</a>.</p>
+
+      <h2>Legal</h2>
+      <p>Use of Cupd. is subject to our <a href="terms.html">Terms of Service</a>.</p>
+
+    </main>
+    <footer>
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand">Cupd.</div>
+          <div class="footer-tagline">coffee, captured.</div>
+        </div>
+        <div>
+          <div class="footerlinks">
+            <a href="privacy.html">privacy</a>
+            <a href="terms.html">terms</a>
+            <a href="support.html">support</a>
+            <a href="community-guidelines.html">community guidelines</a>
+            <a href="delete-account.html">delete account</a>
+          </div>
+          <div class="copyright">© 2026 Cupd.</div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
