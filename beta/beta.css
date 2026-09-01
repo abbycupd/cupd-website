@@ -4,10 +4,15 @@
   --muted: #6E6A63;
   --line: #CFC9BE;
   --soft: #E9E3D8;
+  --max: 1180px;
 }
 
 * {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 html,
@@ -26,19 +31,33 @@ a {
   color: inherit;
 }
 
+/* =========================
+   LAYOUT
+========================= */
+
 .beta-shell {
-  width: min(100% - 40px, 1080px);
+  width: 100%;
+  max-width: var(--max);
   margin: 0 auto;
+  padding: 0 28px;
 }
+
+/* =========================
+   NAV
+========================= */
 
 .beta-nav {
   min-height: 84px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   border-bottom: 1px solid var(--line);
 }
 
+/*
+  Intentionally left as the beta page's own Cupd. home button styling.
+  This is the exception requested.
+*/
 .beta-brand {
   font-size: 30px;
   font-weight: 700;
@@ -47,7 +66,7 @@ a {
 }
 
 .beta-back {
-  font-size: 11px;
+  font-size: 12px;
   text-decoration: none;
 }
 
@@ -55,42 +74,51 @@ a {
   text-decoration: underline;
 }
 
+/* =========================
+   MAIN
+========================= */
+
 .beta-main {
   display: grid;
-  grid-template-columns: .85fr 1.15fr;
-  gap: 110px;
-  padding: 92px 0 110px;
+  grid-template-columns: 1fr 1fr;
+  gap: 90px;
   align-items: start;
-}
-
-.beta-kicker,
-.form-label,
-.beta-small {
-  font-size: 10px;
-  color: var(--muted);
+  padding: 110px 0;
 }
 
 .beta-kicker {
-  margin-bottom: 34px;
+  font-size: 10px;
+  color: var(--muted);
+  margin-bottom: 48px;
 }
 
 .beta-title {
   margin: 0;
-  max-width: 560px;
-  font-size: clamp(58px, 8vw, 102px);
-  line-height: .86;
-  letter-spacing: -7px;
+  max-width: 650px;
+  font-size: clamp(40px, 5vw, 68px);
+  line-height: .98;
+  letter-spacing: -4px;
+  font-weight: 700;
 }
 
 .beta-copy {
-  max-width: 480px;
-  margin: 38px 0 0;
-  font-size: 14px;
+  max-width: 530px;
+  margin: 34px 0 0;
+  font-size: 13px;
   line-height: 1.8;
   color: var(--muted);
 }
 
-/* FORM */
+.beta-small {
+  margin-top: 24px;
+  font-size: 10px;
+  line-height: 1.7;
+  color: var(--muted);
+}
+
+/* =========================
+   FORM
+========================= */
 
 .beta-form {
   border-top: 1px solid var(--ink);
@@ -109,10 +137,10 @@ a {
 .form-label {
   display: block;
   margin-bottom: 11px;
+  font-size: 10px;
+  color: var(--muted);
   letter-spacing: .02em;
 }
-
-/* inputs */
 
 .field input,
 .field select,
@@ -121,18 +149,14 @@ a {
   width: 100%;
   margin: 0;
   padding: 4px 0 2px;
-
   border: 0;
   border-radius: 0;
   outline: 0;
-
   background: transparent;
   color: var(--ink);
-
   font-family: "Courier New", Courier, monospace;
   font-size: 17px;
   line-height: 1.5;
-
   box-shadow: none;
   -webkit-box-shadow: none;
 }
@@ -147,17 +171,12 @@ a {
   opacity: 1;
 }
 
-/* selects */
-
 .field select {
   min-height: 34px;
   padding-right: 32px;
-
   appearance: none;
   -webkit-appearance: none;
-
   cursor: pointer;
-
   background-image:
     linear-gradient(45deg, transparent 50%, var(--ink) 50%),
     linear-gradient(135deg, var(--ink) 50%, transparent 50%);
@@ -170,14 +189,10 @@ a {
   background-repeat: no-repeat;
 }
 
-/* textarea */
-
 .field textarea {
   min-height: 96px;
   resize: vertical;
 }
-
-/* remove browser autofill weirdness */
 
 .field input:-webkit-autofill,
 .field input:-webkit-autofill:hover,
@@ -189,31 +204,25 @@ a {
   transition: background-color 9999s ease-out;
 }
 
-/* button */
+/* =========================
+   BUTTON
+========================= */
 
 .beta-submit {
   width: 100%;
   margin-top: 30px;
-  padding: 19px 22px;
-
+  padding: 16px 22px;
   border: 1px solid var(--ink);
   border-radius: 0;
-
   background: var(--ink);
   color: var(--bg);
-
   font-family: "Courier New", Courier, monospace;
   font-size: 12px;
-
   cursor: pointer;
-  transition:
-    background .15s ease,
-    color .15s ease;
 }
 
 .beta-submit:hover {
-  background: transparent;
-  color: var(--ink);
+  opacity: .88;
 }
 
 .beta-submit:disabled {
@@ -221,18 +230,17 @@ a {
   cursor: wait;
 }
 
-/* status */
+/* =========================
+   STATUS / SUCCESS
+========================= */
 
 .form-message {
   min-height: 18px;
   margin: 16px 0 0;
-
   font-size: 11px;
   line-height: 1.6;
   color: var(--muted);
 }
-
-/* success */
 
 .success {
   display: none;
@@ -246,37 +254,51 @@ a {
 
 .success-title {
   margin: 0 0 24px;
-  font-size: clamp(48px, 7vw, 78px);
-  line-height: .9;
-  letter-spacing: -5px;
+  font-size: clamp(40px, 5vw, 68px);
+  line-height: .98;
+  letter-spacing: -4px;
+  font-weight: 700;
 }
 
 .success-copy {
-  max-width: 480px;
-  font-size: 14px;
+  max-width: 530px;
+  font-size: 13px;
   line-height: 1.8;
   color: var(--muted);
 }
 
-/* footer */
+/* =========================
+   FOOTER
+========================= */
 
 .beta-footer {
-  padding: 38px 0 52px;
+  padding: 56px 0;
   border-top: 1px solid var(--line);
-
   display: flex;
   justify-content: space-between;
   gap: 24px;
-
   font-size: 10px;
   color: var(--muted);
 }
 
-/* mobile */
+/* =========================
+   TABLET
+========================= */
 
-@media (max-width: 760px) {
+@media (max-width: 850px) {
+  .beta-main {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 560px) {
   .beta-shell {
-    width: min(100% - 36px, 1080px);
+    padding: 0 18px;
   }
 
   .beta-nav {
@@ -289,17 +311,17 @@ a {
 
   .beta-main {
     grid-template-columns: 1fr;
-    gap: 62px;
-    padding: 64px 0 80px;
+    gap: 50px;
+    padding: 75px 0;
   }
 
   .beta-title {
-    font-size: 64px;
-    letter-spacing: -5px;
+    font-size: 40px;
+    letter-spacing: -3px;
   }
 
   .beta-copy {
-    margin-top: 28px;
+    font-size: 13px;
   }
 
   .field {
@@ -314,6 +336,11 @@ a {
 
   .field textarea {
     min-height: 88px;
+  }
+
+  .success-title {
+    font-size: 40px;
+    letter-spacing: -3px;
   }
 
   .beta-footer {
