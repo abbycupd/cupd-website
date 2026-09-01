@@ -865,6 +865,9 @@ h2 {
       160px
     );
 
+  font-weight:
+    400;
+
   max-width:
     none;
 
@@ -1327,4 +1330,13 @@ footer {
       -6px;
   }
 
+}
+
+
+/* Cupd. wordmark — regular weight across homepage */
+.brand,
+.brand-panel-top,
+.launch-title,
+.footer-brand {
+  font-weight: 400 !important;
 }
