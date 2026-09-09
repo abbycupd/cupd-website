@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Why we built Cupd. | Cupd. Journal</title>
+  <meta name="description" content="Cupd. is a social coffee diary and feed for capturing, rating and remembering every coffee you drink — here's why we built it.">
+  <style>
+:root {
+  --cream: #F5F1E8;
+  --ink: #111111;
+  --muted: #777777;
+  --line: #C9C3B9;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: "Courier New", Courier, monospace;
+}
+.wrap {
+  width: min(760px, calc(100% - 40px));
+  margin: 0 auto;
+}
+nav {
+  min-height: 84px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 22px;
+  border-bottom: 1px solid var(--ink);
+}
+.brand {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 28px;
+}
+.navlinks {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 16px;
+}
+.navlinks a, footer a {
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 12px;
+}
+.navlinks a:hover, footer a:hover { text-decoration: underline; }
+main {
+  padding: 60px 0 90px;
+}
+.back {
+  display: inline-block;
+  margin-bottom: 34px;
+  font-size: 12px;
+  color: var(--muted);
+  text-decoration: none;
+}
+.back:hover { text-decoration: underline; }
+.eyebrow {
+  color: var(--muted);
+  font-size: 11px;
+  text-transform: lowercase;
+  margin-bottom: 12px;
+}
+h1 {
+  margin: 0 0 14px;
+  font-size: clamp(30px, 6vw, 46px);
+  font-weight: 400;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+.updated {
+  margin: 0 0 48px;
+  color: var(--muted);
+  font-size: 12px;
+}
+h2 {
+  margin: 42px 0 12px;
+  font-size: 19px;
+  font-weight: 400;
+}
+p, li {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 15.5px;
+  line-height: 1.75;
+}
+p { margin: 14px 0; }
+strong { font-weight: 700; }
+a { color: var(--ink); }
+.callout {
+  margin: 34px 0;
+  border: 1px solid var(--ink);
+  padding: 22px;
+}
+.cta {
+  display: inline-block;
+  margin-top: 8px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 14px;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 2px;
+}
+footer {
+  border-top: 1px solid var(--ink);
+  padding: 28px 0 40px;
+}
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 28px;
+  align-items: flex-start;
+}
+.footer-brand { font-size: 22px; }
+.footer-tagline, .copyright {
+  color: var(--muted);
+  font-size: 11px;
+  margin-top: 7px;
+}
+.footerlinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: flex-end;
+}
+@media (max-width: 650px) {
+  nav { align-items: flex-start; padding: 22px 0; }
+  .navlinks { max-width: 210px; }
+  main { padding-top: 40px; }
+  .footer-inner { flex-direction: column; }
+  .footerlinks { justify-content: flex-start; }
+}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <a class="brand" href="/">Cupd.</a>
+      <div class="navlinks">
+        <a href="/">home</a>
+        <a href="../journal/">journal</a>
+        <a href="../support.html">support</a>
+      </div>
+    </nav>
+    <main>
+
+      <a class="back" href="./">← journal</a>
+
+      <div class="eyebrow">the story · September 2026</div>
+      <h1>Why we built Cupd.</h1>
+      <p class="updated">coffee, captured. ☕️</p>
+
+      <p>Most of us have an app for the films we watch and an app for the restaurants we try. Nobody's got one for the thing we actually drink every single day. Coffee.</p>
+
+      <p>That's basically where Cupd. started. Not a chain-loyalty app, not a generic review site buried under adverts and menus for things you'll never order. Just something for people who care about their coffee, want to remember what was actually worth ordering again, and like seeing what their mates are drinking.</p>
+
+      <p>Every Cupd. post is small. A photo, a café, a drink, a rating out of ten, a caption if you feel like it. On their own they're throwaway. Stacked up over months though, they start to look a lot like a diary. The coffee you had on a random Tuesday. The one that saved a bad morning. The café you always mean to go back to and never quite do.</p>
+
+      <div class="callout">
+        <strong>The comparison we keep reaching for:</strong>
+        <p>Letterboxd for films. Beli for restaurants. Cupd. for coffee. Same idea, rate it, remember it, see what your people are into, just pointed at something a lot more everyday.</p>
+      </div>
+
+      <h2>built around real cafés, not just chains</h2>
+      <p>Independent coffee shops live and die on word of mouth. A rating buried in a sea of unrelated restaurant reviews doesn't do much for them, and it's not much use to you either. Cupd. sticks to coffee and cafés, so the rankings actually mean something, and the good small places people miss have a shot at getting found.</p>
+
+      <h2>where it's heading</h2>
+      <p>Right now Cupd. is still heads-down in development. Feeds, profiles, café discovery, a proper map of everywhere you've been. We're building it out in the open where we can, starting with the people closest to us first.</p>
+
+      <p>If that sounds like your kind of thing, get in early.</p>
+
+      <a class="cta" href="../beta/">join the beta →</a>
+
+    </main>
+    <footer>
+      <div class="footer-inner">
+        <div>
+          <div class="footer-brand">Cupd.</div>
+          <div class="footer-tagline">coffee, captured.</div>
+        </div>
+        <div>
+          <div class="footerlinks">
+            <a href="../beta/">join beta</a>
+            <a href="../privacy.html">privacy</a>
+            <a href="../terms.html">terms</a>
+            <a href="../support.html">support</a>
+          </div>
+          <div class="copyright">© 2026 Cupd.</div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
