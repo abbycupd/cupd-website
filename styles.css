@@ -1390,3 +1390,79 @@ footer {
 .footer-brand {
   font-weight: 400 !important;
 }
+
+/* =========================
+   MOBILE NAV — FIXED
+========================= */
+
+.mobile-nav {
+  display: none;
+  position: relative;
+}
+
+.mobile-nav summary {
+  list-style: none;
+  border: 1px solid var(--ink);
+  padding: 8px 14px;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+  color: var(--ink);
+  cursor: pointer;
+  user-select: none;
+}
+
+.mobile-nav summary::-webkit-details-marker {
+  display: none;
+}
+
+.mobile-nav[open] summary {
+  background: var(--ink);
+  color: var(--bg);
+}
+
+.mobile-nav .mobile-menu {
+  display: none;
+}
+
+.mobile-nav[open] .mobile-menu {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 10px);
+  width: min(78vw, 300px);
+  padding: 8px 14px;
+  border: 1px solid var(--ink);
+  background: var(--bg);
+  z-index: 9999;
+}
+
+.mobile-nav .mobile-menu a {
+  display: block;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(17,17,17,.12);
+  text-decoration: none;
+  font-size: 13px;
+}
+
+.mobile-nav .mobile-menu a:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 560px) {
+  .navlinks,
+  .nav-toggle,
+  .wrap > .mobile-menu {
+    display: none !important;
+  }
+
+  .mobile-nav {
+    display: block;
+  }
+
+  nav {
+    position: relative;
+    z-index: 1000;
+  }
+}
