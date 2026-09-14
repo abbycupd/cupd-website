@@ -1,0 +1,18 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": [
+          "UCUH24859X.com.abbycupd.cupd",
+          "UCUH24859X.com.abbycupd.cupd.dev"
+        ],
+        "components": [
+          {
+            "/": "/cupd/*",
+            "comment": "Opens individual Cupds in the Cupd app"
+          }
+        ]
+      }
+    ]
+  }
+}
