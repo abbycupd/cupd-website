@@ -3,10 +3,10 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Join the Cupd. beta</title>
+  <title>Get Cupd.</title>
   <meta
     name="description"
-    content="Join the Cupd. beta and be one of the first to capture, rate and share your coffees."
+    content="Cupd. is out now on iPhone. Download it, or say hello and grab a coffee."
   >
   <style>
     :root {
@@ -272,6 +272,20 @@
       line-height: 1.6;
     }
 
+    .download {
+      display: inline-block;
+      margin-top: 40px;
+      padding: 18px 24px;
+      background: var(--ink);
+      color: var(--cream);
+      font-size: 13px;
+      text-decoration: none;
+    }
+
+    .download:hover {
+      opacity: 0.88;
+    }
+
     .panel-bottom {
       margin-top: 48px;
       display: flex;
@@ -358,22 +372,26 @@
 
     <main>
       <section>
-        <div class="eyebrow">early access / 2026</div>
+        <div class="eyebrow">out now / iPhone</div>
 
         <h1>
-          want<br>
-          in early?
+          coffee,<br>
+          captured.
         </h1>
 
         <p class="tagline">
-          coffee, captured.
+          Cupd. is on the App Store.
         </p>
 
         <p class="copy">
           Cupd. is a social coffee app for capturing, rating and sharing
           the coffees you drink and the places you find them.
-          Join the beta list and be one of the first to get Cupd.
+          Download it and log your first cup.
         </p>
+
+        <a class="download" href="https://apps.apple.com/gb/app/cupd/id6807595424">
+          download now →
+        </a>
 
         <p class="tiny">
           first cups. first cafés. first friends.<br>
@@ -383,55 +401,22 @@
 
       <section class="panel">
         <div>
-          <div class="panel-number">01 / join</div>
+          <div class="panel-number">02 / say hello</div>
 
           <h2 class="panel-title">
-            your camera roll<br>
-            has been training<br>
-            for this.
+            fancy<br>
+            a coffee?
           </h2>
 
           <p class="panel-copy">
-            Tell us a little about you and we'll let you know when beta spaces open.
+            Want to chat about Cupd., your café, or just coffee?
+            Leave your details and I'll get back to you.
           </p>
 
           <form
             class="beta-form"
-            id="beta-form"
+            id="coffee-form"
           >
-            <div class="field">
-              <label>who are you?</label>
-
-              <div class="choice-grid">
-                <div class="choice">
-                  <input
-                    id="user-type-drinker"
-                    name="user_type"
-                    type="radio"
-                    value="Coffee drinker"
-                    required
-                    checked
-                  >
-                  <label for="user-type-drinker">
-                    coffee drinker
-                  </label>
-                </div>
-
-                <div class="choice">
-                  <input
-                    id="user-type-cafe"
-                    name="user_type"
-                    type="radio"
-                    value="Café"
-                    required
-                  >
-                  <label for="user-type-cafe">
-                    café
-                  </label>
-                </div>
-              </div>
-            </div>
-
             <div class="field">
               <label for="name">name</label>
               <input
@@ -471,98 +456,14 @@
               >
             </div>
 
-            <div
-              class="field conditional"
-              id="cafe-name-field"
-            >
-              <label for="cafe-name">café name</label>
-              <input
-                id="cafe-name"
-                name="cafe_name"
-                type="text"
-                maxlength="120"
-                placeholder="your café"
-              >
-            </div>
-
-            <div
-              class="field"
-              id="usual-order-field"
-            >
-              <label for="usual-order">your usual order?</label>
-              <select
-                id="usual-order"
-                name="usual_order"
-              >
-                <option value="" selected disabled>
-                  choose your coffee
-                </option>
-                <option value="Flat white">flat white</option>
-                <option value="Latte">latte</option>
-                <option value="Americano">americano</option>
-                <option value="Cappuccino">cappuccino</option>
-                <option value="Iced latte">iced latte</option>
-                <option value="Filter">filter</option>
-                <option value="Espresso">espresso</option>
-                <option value="Matcha">matcha</option>
-                <option value="Other">other</option>
-              </select>
-            </div>
-
             <div class="field">
-              <label for="instagram">instagram @ <span>(optional)</span></label>
-              <input
-                id="instagram"
-                name="instagram"
-                type="text"
-                maxlength="80"
-                placeholder="@"
-              >
-            </div>
-
-            <div class="field">
-              <label for="device">what phone do you use?</label>
-              <select
-                id="device"
-                name="device"
-                required
-              >
-                <option value="" selected disabled>
-                  choose device
-                </option>
-                <option value="iPhone">iPhone</option>
-                <option value="Android">Android</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label for="coffee-frequency">how often do you drink coffee?</label>
-              <select
-                id="coffee-frequency"
-                name="coffee_frequency"
-                required
-              >
-                <option value="" selected disabled>
-                  choose one
-                </option>
-                <option value="Every day">every day</option>
-                <option value="A few times a week">a few times a week</option>
-                <option value="About once a week">about once a week</option>
-                <option value="A few times a month">a few times a month</option>
-                <option value="Rarely">rarely</option>
-              </select>
-            </div>
-
-            <div class="field">
-              <label for="beta-reason">
-                why do you want to beta test Cupd.?
-                <span>(optional)</span>
-              </label>
+              <label for="message">what's on your mind?</label>
               <textarea
-                id="beta-reason"
-                name="beta_reason"
+                id="message"
+                name="message"
                 maxlength="600"
-                placeholder="coffee obsessive, café finder, photo taker..."
+                placeholder="say hi, pitch your café, suggest a spot..."
+                required
               ></textarea>
             </div>
 
@@ -570,12 +471,12 @@
               id="submit-button"
               type="submit"
             >
-              join the beta →
+              let's grab a coffee →
             </button>
           </form>
 
           <p class="form-note">
-            By joining, you're asking to hear from Cupd. about beta access.
+            By sending, you're asking to hear back from Cupd.
             See our <a href="../privacy.html">Privacy Policy</a>.
           </p>
 
@@ -625,7 +526,7 @@
 
 
     const form =
-      document.getElementById('beta-form');
+      document.getElementById('coffee-form');
 
     const status =
       document.getElementById('status');
@@ -633,69 +534,14 @@
     const submitButton =
       document.getElementById('submit-button');
 
-    const cafeNameField =
-      document.getElementById('cafe-name-field');
 
-    const cafeName =
-      document.getElementById('cafe-name');
+    function showStatus(message) {
+      status.style.display =
+        'block';
 
-    const usualOrder =
-      document.getElementById('usual-order');
-
-    const usualOrderField =
-      document.getElementById('usual-order-field');
-
-    const userTypeInputs =
-      document.querySelectorAll(
-        'input[name="user_type"]'
-      );
-
-
-    function updateUserTypeFields() {
-      const selected =
-        document.querySelector(
-          'input[name="user_type"]:checked'
-        )?.value;
-
-      const isCafe =
-        selected === 'Café';
-
-      cafeNameField.classList.toggle(
-        'is-visible',
-        isCafe
-      );
-
-      cafeName.required =
-        isCafe;
-
-      usualOrder.required =
-        !isCafe;
-
-      usualOrderField.style.display =
-        isCafe
-          ? 'none'
-          : 'grid';
-
-      if (isCafe) {
-        usualOrder.value =
-          '';
-      } else {
-        cafeName.value =
-          '';
-      }
+      status.textContent =
+        message;
     }
-
-
-    userTypeInputs.forEach(
-      (input) => {
-        input.addEventListener(
-          'change',
-          updateUserTypeFields
-        );
-      }
-    );
-
-    updateUserTypeFields();
 
 
     form.addEventListener(
@@ -706,102 +552,53 @@
         status.style.display =
           'none';
 
-        status.textContent =
-          '';
-
         submitButton.disabled =
           true;
 
         submitButton.textContent =
-          'joining...';
+          'sending...';
 
         const data =
           new FormData(form);
 
-        const instagramRaw =
+        const field = (name) =>
           String(
-            data.get('instagram') || ''
+            data.get(name) || ''
           ).trim();
 
-        const userType =
-          String(
-            data.get('user_type') || ''
-          ).trim();
-
+        /*
+          Coffee chats go into the existing beta_signups table.
+          The message is stored in beta_reason, prefixed so
+          they're easy to spot.
+        */
         const payload = {
           name:
-            String(
-              data.get('name') || ''
-            ).trim(),
+            field('name'),
 
           email:
-            String(
-              data.get('email') || ''
-            )
-              .trim()
-              .toLowerCase(),
+            field('email').toLowerCase(),
 
           location:
-            String(
-              data.get('location') || ''
-            ).trim(),
-
-          usual_order:
-            userType === 'Café'
-              ? null
-              : String(
-                  data.get('usual_order') || ''
-                ).trim() || null,
-
-          instagram:
-            instagramRaw ||
-            null,
+            field('location'),
 
           status:
             'waiting',
 
           user_type:
-            userType,
-
-          cafe_name:
-            userType === 'Café'
-              ? String(
-                  data.get('cafe_name') || ''
-                ).trim() || null
-              : null,
+            'Coffee drinker',
 
           device:
-            String(
-              data.get('device') || ''
-            ).trim(),
+            '',
 
           coffee_frequency:
-            String(
-              data.get('coffee_frequency') || ''
-            ).trim(),
+            '',
 
           beta_reason:
-            String(
-              data.get('beta_reason') || ''
-            ).trim() || null
+            `☕ coffee chat: ${field('message')}`
         };
 
 
         try {
-          if (
-            SUPABASE_URL.includes(
-              'PASTE_'
-            ) ||
-            SUPABASE_ANON_KEY.includes(
-              'PASTE_'
-            )
-          ) {
-            throw new Error(
-              'Supabase website keys have not been added yet.'
-            );
-          }
-
-
           const response =
             await fetch(
               `${SUPABASE_URL}/rest/v1/beta_signups`,
@@ -842,55 +639,42 @@
                 'beta_signups_email_unique'
               )
             ) {
-              status.style.display =
-                'block';
-
-              status.textContent =
-                'looks like that email is already on the list.';
+              showStatus(
+                "looks like we've already got your details — I'll be in touch."
+              );
 
               return;
             }
 
             throw new Error(
               errorText ||
-              'Could not join the beta.'
+              'Could not send message.'
             );
           }
 
 
           form.reset();
 
-          document.getElementById(
-            'user-type-drinker'
-          ).checked =
-            true;
-
-          updateUserTypeFields();
-
-          status.style.display =
-            'block';
-
-          status.textContent =
-            "you're in. we'll be in touch when beta spaces open.";
+          showStatus(
+            "got it. I'll be in touch about that coffee."
+          );
 
         } catch (error) {
           console.error(
-            'BETA SIGNUP ERROR:',
+            'COFFEE FORM ERROR:',
             error
           );
 
-          status.style.display =
-            'block';
-
-          status.textContent =
-            "couldn't add you just yet. try again in a moment.";
+          showStatus(
+            "couldn't send that just yet. try again in a moment, or email support@cupd.co.uk."
+          );
 
         } finally {
           submitButton.disabled =
             false;
 
           submitButton.textContent =
-            'join the beta →';
+            "let's grab a coffee →";
         }
       }
     );
